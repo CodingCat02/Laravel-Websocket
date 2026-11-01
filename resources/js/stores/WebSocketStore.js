@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 
-export const useWebSocketStore = defineStore('WebSocketStore', {
+export const useWebSocketStore = defineStore('webSocketStore', {
     state: () => ({
         count: 0,
     }),

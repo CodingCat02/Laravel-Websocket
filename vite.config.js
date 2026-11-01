@@ -16,6 +16,7 @@ export default defineConfig({
             '@pages': path.resolve(__dirname, './resources/js/pages'),
             '@stores': path.resolve(__dirname, './resources/js/stores'),
             '@plugins': path.resolve(__dirname, './resources/js/plugins'),
+            '@auth': path.resolve(__dirname, './resources/js/auth'),
         },
     },
     plugins: [
