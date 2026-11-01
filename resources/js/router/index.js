@@ -1,13 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Dashboard from '@pages/Dashboard.vue';
-import Login from '@auth/Login.vue';
 import { useAuthStore } from '@stores/auth';
+import Login from '@auth/Login.vue';
+import Dashboard from '@pages/Dashboard.vue';
+import GitTutorial from '@pages/GitTutorial.vue';
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/', name: 'dashboard', component: Dashboard, meta: { requiresAuth: true } },
         { path: '/login', name: 'login', component: Login,  meta: { guest: true }},
+
+        { path: '/', name: 'dashboard', component: Dashboard, meta: { requiresAuth: true } },
+        { path: '/git-tutorial', name: 'git-tutorial', component: GitTutorial, meta: { requiresAuth: true } },
     ],
 }); 
 router.beforeEach(async (to) => {
