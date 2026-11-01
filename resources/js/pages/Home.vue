@@ -1,13 +1,13 @@
 <script setup>
-import { useCounterStore } from '../stores/counter';
+import { useWebSocketStore } from '@stores/WebSocketStore';
 
-const counter = useCounterStore();
+const WebSocketStore = useWebSocketStore();
 </script>
 
 <template>
   <v-container>
-    <v-btn color="primary" prepend-icon="mdi-plus" @click="counter.increment()">
-      Count: {{ counter.count }} (double: {{ counter.double }})
+    <v-btn color="primary" prepend-icon="mdi-plus" @click="WebSocketStore.increment()">
+      Count: {{ WebSocketStore.count }} (double: {{ WebSocketStore.double }})
     </v-btn>
   </v-container>
 </template>
