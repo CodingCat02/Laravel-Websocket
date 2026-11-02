@@ -16,9 +16,14 @@ export const useAuthStore = defineStore('auth', {
         this.user = data;
       } catch (error) {
         this.user = null;
-        console.error('Error fetching user:', error);
+        // console.error('Error fetching user:', error);
+        if (error.response && error.response.status === 401) {
+          // Handle unauthorized access, e.g., redirect to login
+          console.log('User is not authenticated. Redirecting to login...');
+        }
       } finally {
         this.ready = true;
+        // window.location.reload(); 
       }
     },
     async login(data) {

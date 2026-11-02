@@ -1,0 +1,27 @@
+*, *::before, *::after {
+  box-sizing: border-box; /* Includes padding/border in element dimensions */
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  /* Reset default browser spacing */
+  margin: 0;
+  padding: 0;
+  
+  /* Force body to span the full height of the viewport */
+  min-height: 100%;
+  
+  /* Typography Baseline */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 1rem;       /* 16px default */
+  line-height: 1.5;
+  color: #333333;
+  
+  /* Smooth rendering tweaks */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+}

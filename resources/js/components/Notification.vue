@@ -3,7 +3,7 @@
     v-model="store.notification.show"
     :color="store.notification.color"
     :timeout="store.notification.timeout"
-    location="top"
+    location="top center"
     variant="elevated"
     rounded="lg"
     elevation="6"

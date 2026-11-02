@@ -30,7 +30,6 @@ import { useRouter, useRoute } from 'vue-router';
 import { useAuthStore } from '@stores/auth';
 
 const auth = useAuthStore();
-const router = useRouter();
 const route = useRoute();
 
 const form = reactive({ email: '', password: '' });
@@ -42,9 +41,12 @@ async function submit() {
   errors.value = {};
   try {
     await auth.login(form);
-    router.push(route.query.redirect || '/');
+    const redirect = route.query.redirect;
+    const safe = typeof redirect === 'string' && redirect.startsWith('/') && !redirect.startsWith('//');
+    window.location.href = safe ? redirect : '/';
   } catch (e) {
-    errors.value = e.response?.data?.errors ?? { email: ['Something went wrong.'] };
+    errors.value = e.response?.data?.errors ?? {};
+    store.error(e.response?.data?.message ?? 'Login failed. Please try again.');
   } finally {
     loading.value = false;
   }
