@@ -18,6 +18,7 @@ const router = createRouter({
             ]
         },
          { path: '/login', name: 'login', component: Login,  meta: { guest: true} },
+         { path: '/register', name: 'register', component: Login,  meta: { guest: true} },
     ],
 }); 
 router.beforeEach(async (to) => {
