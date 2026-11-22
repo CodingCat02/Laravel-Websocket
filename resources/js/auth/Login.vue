@@ -2,8 +2,9 @@
   <v-container class="fill-height" style="max-width: 420px">
     <v-card class="pa-6 w-100">
       <v-form @submit.prevent="submitLogin">
-        <v-card-title class="text-h5 mb-2">
-          <span class="mdi mdi-web">Laravel WebSocket</span>
+        <v-card-title class="text-h mb-2 ga-1 p-2 d-flex align-items-center">
+          <v-icon color="yellow-darken-2" class="mdi mdi-web"></v-icon>
+          <span>Laravel WebSocket</span>
         </v-card-title>
         <v-card-subtitle class="mb-4">
           <span>Login</span>
@@ -11,14 +12,14 @@
         <v-card-text class="mb-4">
           <v-text-field
             v-model="loginForm.email"
-            label="Email"
+            placeholder="Email"
             type="email"
             prepend-inner-icon="mdi-email"
             :error-messages="errors.email"
           />
           <v-text-field
             v-model="loginForm.password"
-            label="Password"
+            placeholder="Password"
             type="password"
             prepend-inner-icon="mdi-lock"
             :error-messages="errors.password"
@@ -43,7 +44,6 @@
       </v-form>
     </v-card>
   </v-container>
-
  <v-dialog
     v-model="openRegisterDialog"
     width="400"

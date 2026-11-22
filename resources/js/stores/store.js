@@ -7,7 +7,7 @@ export const useStore = defineStore('store', {
             show: false,
             message: '',
             color: '',
-            timeout: 3000,
+            timeout: 2000,
         }],
         loading: false,
 
@@ -16,14 +16,14 @@ export const useStore = defineStore('store', {
 
     },
     actions: {
-        notify(message, color = 'success', timeout = 3000) {
+        notify(message, color = 'success', timeout = 2000) {
             this.notification.show = false;
             setTimeout(() => {
                 this.notification = { show: true, message, color, timeout };
             }, 50);
         },
         success(message) { this.notify(message, 'success'); },
-        error(message)   { this.notify(message, 'error', 5000); },
+        error(message)   { this.notify(message, 'error', 4000); },
         info(message)    { this.notify(message, 'info'); },
         warning(message) { this.notify(message, 'warning'); },
     },

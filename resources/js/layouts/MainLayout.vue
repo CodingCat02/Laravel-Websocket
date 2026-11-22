@@ -1,6 +1,5 @@
 <template>
-  <v-app-bar class="px-5" dark>
-    
+  <v-app-bar class="px-5" dark :color="isLight ? 'blue-lighten-1' : 'grey-darken-2'">
     <template v-slot:prepend>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
     </template>
@@ -10,9 +9,7 @@
        <v-icon size="30" @click="toggleTheme">
          {{ isLight ? 'mdi-weather-sunny' : 'mdi-weather-night' }}
        </v-icon>
-       <v-icon size="30" @click="logout">
-         {{ 'mdi-logout' }}
-       </v-icon>
+      
      </div>
   </v-app-bar>
   
@@ -33,9 +30,19 @@
         :prepend-icon="item.meta.icon"
         :to="{ name: item.name }"
         :title="item.meta.title"
+        :active="item.name === router.currentRoute.value.name"
       >
       </v-list-item>
     </v-list>
+    <template v-slot:append>
+      <div class="pa-2">
+        <v-btn block variant="outlined" color="error">
+          <v-icon size="30" @click="logout">
+            {{ 'mdi-logout' }}
+          </v-icon>
+        </v-btn>
+      </div>
+    </template>
   </v-navigation-drawer>
   <v-main>
     <router-view />
